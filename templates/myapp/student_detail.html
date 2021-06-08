@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail View</title>
+</head>
+<body>
+    {% if student_detail %}
+    <h2>student Name is : {{student_detail.name}}</h2>
+    <h2>studen Age is : {{student_detail.age}}</h2>
+     <h2>School Name : {{student_detail.school}}</h2> 
+    {% endif %}
+    <br>
+    <ol>
+        {% for student in student_detail.students.all %}
+        <li>{{student.name}}</li>      
+    {% endfor %}
+    <a class="btn btn-warning" href="{% url 'update_student' pk=student_detail.pk %}">Update</a><br>
+    <a class="btn btn-danger" href="{% url 'delete_student' pk=student_detail.pk %}">Delete</a><br>
+    <a class="btn btn-danger" href="{% url 'student_list' %}">go back</a>
+    </ol>
+</body>
+</html>

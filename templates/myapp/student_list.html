@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_list</title>
+</head>
+<body>
+    <h1>List Of Students</h1>
+    <ol>
+    {% for student in students %}
+      <li><a href="{% url 'studentdetail_view' pk=student.id %}">{{student.name}}</a></li>
+    {% endfor %}
+    </ol>
+    <a class="btn btn-danger" href="{% url 'create_student' %}"> create new student data</a>
+      <br>
+    <a class="btn btn-danger" href="{% url 'school_list' %}">go to schools</a><br>
+
+    <a class="btn btn-danger" href="{% url 'homepage' %}">Go to Homepage</a><br>
+
+</body>
+</html>
